@@ -1,0 +1,151 @@
+<html>
+<head><title>Leaflet.js Essentials</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+	   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+	   crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+	   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+	   crossorigin=""></script>
+
+	<style>
+		#map { position: absolute; top:0; bottom:0; right:0; left:0;z-index:0}
+		p {position: absolute; top: 0; right: 0; z-index:1; background-color: white}
+		
+		
+		
+		/*Legend specific*/
+.legend {
+  padding: 16px 10px;
+  font: 14px Roboto Slab, Arial, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
+  /*border-radius: 5px;*/
+  line-height: 24px;
+  color: #555;
+}
+.legend h4 {
+  text-align: left;
+  font-size: 16px;
+  margin: 2px 12px 8px;
+  color: #333;
+}
+
+.legend span {
+  position: relative;
+  bottom: 3px;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin: 0 8px 0 0;
+  opacity: 0.7;
+}
+
+.legend i.icon {
+  background-size: 18px;
+  background-color: rgba(255, 255, 255, 1);
+
+}
+	</style>
+</head>
+<body>
+ 
+	<div id="map"></div>
+	<!-- data -->
+	<script src="deltagebied.js"></script>
+	<script src="hamburg.js"></script>
+	<script src="monding.js"></script>
+	<script src="natrans.js"></script>
+	<script src="trans.js"></script>
+
+	<script> //map initilizer
+	var map = L.map('map', {center: [53.61939393538435, 9.629516601562502],zoom: 10, maxZoom: 11,minZoom: 9});
+	L.tileLayer('https://api.mapbox.com/styles/v1/3027410/ckiwapns74mw219qowh0oqe8f/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiMzAyNzQxMCIsImEiOiJjazQ5eWpibWowOWxvM2twYnp6aXNkdWdmIn0.uzKMav-HM8sMvEQ0uyvsFQ',)
+
+	.addTo(map);
+	map.scrollWheelZoom.disable()
+
+	
+	var geoJsonLayer = L.geoJson(deltagebied , {
+    color: '#3f6473',
+    fillOpacity: 0.2,
+    radius: 500,
+	stroke: 0
+}).addTo(map);
+	var geoJsonLayer = L.geoJson(hamburg , {
+    color: '#3f6473',
+    fillOpacity: 0,
+    radius: 500,
+	stroke: 1
+}).addTo(map);
+	var geoJsonLayer = L.geoJson(monding , {
+    color: '#0084a8',
+    fillOpacity: 0,
+    radius: 500,
+	stroke: 7
+}).addTo(map);
+	var geoJsonLayer = L.geoJson(natrans , {
+    color: '#00daf6',
+    fillOpacity: 0,
+    radius: 500,
+	stroke: 7
+}).addTo(map);
+	var geoJsonLayer = L.geoJson(trans , {
+    color: '#00d0ad',
+    fillOpacity: 0,
+    radius: 500,
+	stroke: 7
+}).addTo(map);
+
+                  var icoonovergang = L.icon({
+    iconUrl: 'https://geobranche.nl/gmd1920/lennart/images/elbe-overgang-s.png',
+
+    iconSize:     [160, 69], // size of the icon
+    shadowSize:   [50, 62], // size of the shadow
+    iconAnchor:   [45, 20], // point of the icon which will correspond to marker's location
+    shadowAnchor: [15, 62],  // the same for the shadow
+    popupAnchor:  [40, -20] // point from which the popup should open relative to the iconAnchor
+});
+
+                  var icoon = L.icon({
+    iconUrl: 'https://geobranche.nl/gmd1920/lennart/images/sluisgeesthacht.png',
+
+    iconSize:     [100, 39], // size of the icon
+    shadowSize:   [50, 62], // size of the shadow
+    iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
+    shadowAnchor: [15, 62],  // the same for the shadow
+    popupAnchor:  [40, -20] // point from which the popup should open relative to the iconAnchor
+});
+
+                  var marker = L.marker([53.432114288404755,10.338236689567568], {icon: icoon}).addTo(map);
+                  marker.bindPopup("<b>Stuw bij Geesthacht</b>").openPopup();
+				  
+				  var trans = L.marker([53.73926947892645,9.424209594726564], {icon: icoonovergang}).addTo(map);
+                  trans.bindPopup("<b>Hoogste sedimentophoping</b>");
+		  
+/*Legend specific*/
+var legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML += "<h4>Legenda</h4>";
+  div.innerHTML += '<i style="background: #cbd4d7"></i><span>Deltagebied</span><br>';
+  div.innerHTML += '<i class="icon" style="background-image: url(https://geobranche.nl/gmd1920/lennart/images/hamburggrens.png);background-repeat: no-repeat;"></i><span>Staat Hamburg</span><br>';
+  div.innerHTML += '<i class="icon" style="background-image: url(https://geobranche.nl/gmd1920/lennart/images/voortrans.png);background-repeat: no-repeat;"></i><span>Noordzeemonding</span><br>';
+  div.innerHTML += '<i class="icon" style="background-image: url(https://geobranche.nl/gmd1920/lennart/images/trans.png);background-repeat: no-repeat;"></i><span>Transitiegebied</span><br>';
+  div.innerHTML += '<i class="icon" style="background-image: url(https://geobranche.nl/gmd1920/lennart/images/natrans.png);background-repeat: no-repeat;"></i><span>Limnische rivier</span><br>';
+div.innerHTML += '<h3>Bronnen:</h3>';
+  div.innerHTML += '<span> <a href="https://northsearegion.eu/immerse/project-estuaries/the-elbe-estuary/" target="_blank">Interreg North Sea Region IMMERSE</a></span><br>';
+
+  return div;
+};
+
+legend.addTo(map);
+	</script> 
+
+</body>
+</html>
+

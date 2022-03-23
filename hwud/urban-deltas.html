@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<title>Project Wereldwateren: Urban Deltas</title>
+<link rel="icon" href="https://www.uvw.nl/wp-content/uploads/2020/05/favicon.ico" type="image/x-icon" >
+	
+<link href="css/hoofd-stijlbestand-website.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Roboto+Slab:wght@300;400&display=swap" rel="stylesheet"> 
+	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<!--speciaal voor deze pagina-->
+<style>
+.buitenbalk{
+background-color: rgba(63, 100, 115, 0.6);
+}
+
+.binnencontainer p{
+text-align:left;
+
+}
+
+h1{
+font-weight:300;
+
+}
+
+h3{
+text-align:center;
+font-weight:300;
+font-size: 27px;
+color: #fff;
+}
+
+h3.tagline{
+
+font-size: 47px;
+}
+
+h4{
+
+font-size: 12px;
+margin: 0;
+font-family: 'Montserrat', sans-serif;
+
+}
+
+
+h2{
+
+font-size: 41px;
+margin: 0;
+}
+
+
+
+
+p {
+color: #333 !important;
+font-size:15px;
+font-weight: 300;
+
+}
+
+.introblok-ad{
+
+display: block;
+padding-top: 90px;
+padding-bottom: 90px;
+}
+
+.teksthelft{
+padding: 30px;
+width: 46%;
+display: inline-block;
+vertical-align: top;
+}
+
+@media only screen and (max-width: 1200px) {
+.teksthelft{
+width: 75%;
+
+}
+}
+
+.vergelijkingshelft{
+width: 48%;
+display: inline-block;
+vertical-align: top;
+}
+
+@media only screen and (max-width: 1200px) {
+.vergelijkingshelft {
+    width: 85%;
+}
+}
+
+
+
+.fotocontainer p {
+
+color: white !important;
+font-size:18px;
+font-weight: 400;
+
+}
+
+
+
+.fotocontainer {
+  position: relative;
+  width: 25%;
+  float: left;
+}
+
+
+
+
+@media (max-width: 1600px){
+.fotocontainer {
+  position: relative;
+  width: 33.33%;
+  float: left;
+}
+}
+
+@media (max-width: 1000px){
+.fotocontainer {
+  position: relative;
+  width: 50%;
+  float: left;
+}
+}
+
+
+@media (max-width: 600px){
+.fotocontainer {
+  position: relative;
+  width: 100%;
+  float: left;
+}
+}
+
+.ud_image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+.laagje-over {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: .5s ease;
+  
+}
+
+
+
+.laagje-over_niet-beschikbaar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: .5s ease;
+
+	background-color: rgba(40, 50, 70, 0.7);
+  
+}
+
+
+.laagje-over_niet-beschikbaar:hover {
+background-color: rgba(0,4,21,0.8);
+    background-image: url("images/zandlopertje.png");
+  background-repeat: no-repeat;
+    background-position: center; 
+	
+}
+
+.laagje-over_niet-beschikbaar h4{
+
+position: absolute;
+color: rgba(255,167,0,1);
+bottom: 30px;
+right: 30px;
+
+
+}
+
+
+.laagje-over_niet-beschikbaar:hover::before {
+  content: "Houd de website in de gaten! ";
+  position: absolute;
+color: rgba(255,255,255,1);
+
+font-family: 'Montserrat', sans-serif;
+font-size: 12px;
+margin: 0;
+left:25%;
+
+float: none;
+text-align: center !important;
+padding: 5px;
+border-radius: 0px 0px 5px 5px;
+border: 2px solid rgba(255, 167, 0, 1);
+border-top: 0px;
+width: 50%;
+
+}
+
+
+.fotocontainer:hover .laagje-over {
+    background-color: rgba(51, 189, 240, 0.8);
+}
+
+.ud_teksten {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.delta-vergelijken-icoontje{
+text-align:center !important;
+}
+
+.kader_vergelijken {
+    background-color: transparent;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    border: 2px solid rgba(49,190,240,1);
+    display: inline-block;
+    color: #31bef0;
+    font-size: 17px;
+    padding: 16px 31px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
+}
+
+.kader_vergelijken h3{
+color: #31bef0;
+}
+
+.vergelijkenknop {
+    background-color: transparent;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    border: 2px solid rgba(49,190,240,1);
+    cursor: pointer;
+    color: #31bef0;
+    font-size: 17px;
+    padding: 16px 31px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.vergelijkenknop:hover {
+    position: relative;
+    top: 1px;
+    background-color: rgba(49,190,240,1);
+    border: 2px solid transparent;
+	color: #fff;
+}
+
+
+.hero-alledelta {
+	background-image: url("images/Rotterdam.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 350px;
+	padding-bottom: 100px;
+	text-align: center;
+	  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	
+}
+
+
+@media only screen and (min-width: 1700px) {
+
+
+.hero-alledelta {
+padding-top: 550px;
+
+}
+}
+
+
+.teksthelft p:first-child:first-letter {
+  font-size: 50px;
+  padding-right: 4px;
+  float:left;
+  font-family: 'Roboto Slab', sans-serif;
+   line-height: 0.7;
+}
+
+
+
+</style>
+</head>
+<body>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Navigation -->
+	
+	<div class="buitenbalk">
+  <header> <a href="index.html">
+	  <img height="50" src="images/UVW-Project-Wereldwateren_logo_Urban-Deltas.png" alt="Logo Project Wereldwateren Urban Deltas">
+    </a>
+    <nav>
+      <ul>
+        <li><h6><a href="index.html">Home</a></h6></li>
+        <li><h6><a class="actieflink" href="#">De delta's</a></h6></li>
+		<li><h6><a href="over-project-wereldwateren.html">Over dit project</a></h6></li>
+		<li><h6><a class="navigatielink" href="help-mee.html">Help mee!</a></h6></li>
+		<li><h6><a class="geenlijntje" href="https://www.youtube.com/user/uvwvideokanaal" target="_blank"><img height="20" src="images/yt_logo.png" alt="Youtube"></a></h6></li>
+		<li><h6><a class="geenlijntje" href="https://www.youtube.com/playlist?list=PLAA8yVxqwatxVg6_9lf-M17zt7ggYyxb4" target="_blank"><img height="20" src="images/yt_logo-uvw-int.png" alt="Youtube"></a></h6></li>
+		<li><h6><a class="geenlijntje" href="https://twitter.com/waterschappen" target="_blank"><img height="18" src="images/twitter-logo.png" alt="Twitter"></a></h6></li>
+      </ul>
+    </nav>
+  </header>
+	</div>
+	
+	
+	
+	
+<!-- Mobiel menu -->
+<div class="topnav">
+
+  	<a class="mobiellink" href="index.html"><img class="logomobiel" height="50" src="images/logo_UVW_Project_Wereldwateren_Urban_Deltas_diap.svg" alt="Logo Project Wereldwateren Urban Deltas"></a>
+		<a class="naastelkaar" href="https://twitter.com/waterschappen" target="_blank"><img height="16" src="images/twitter-logo.png" alt="Twitter"></a>
+	  	<a class="naastelkaar" href="https://www.youtube.com/user/uvwvideokanaal" target="_blank"><img height="18" src="images/yt_logo.png" alt="Youtube"></a>
+
+  <div id="myLinks">
+    <a href="urban-deltas.html">De delta's</a>
+    <a href="over-project-wereldwateren.html">Over dit project</a>
+	<a href="help-mee.html">Help mee!</a>
+
+
+	
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+ 
+</div>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+
+	
+	
+	
+  
+  <div class="hero-alledelta">
+    <h2 class="hero_header">Urban Deltas</h2>
+    <h3 class="tagline">Een antropogeen fenomeen</h3>
+  </div>
+  
+  <div class="binnencontainer">
+  
+  
+  <div class="introblok-ad">
+  <div class="teksthelft">
+  
+  
+  
+  <p>Sinds mensenheugenis is een delta een aantrekkelijke plek om te wonen. Het is er laag gelegen, het is er makkelijk bouwen, en al het water en de grond- en voedingsstoffen liggen in de buurt én voor het oprapen.
+  <br>
+  <br>
+  In de afgelopen eeuwen zijn vele deltagebieden omgevormd van een organisch door het water gestuurd landschap naar een stad of zelfs tot metropoolregio. De machtige meanderende rivier vol vis heeft plaats moeten maken voor scheepvaart en betonnen kades. De bocht is er uit, dus het sediment blijvend geschept, en de natuur is verruild voor huizen en bedrijven. En hoewel het goed vertoeven is op een delta is het verblijf er niet geheel risicoloos. Verzakking door onze gewichtige gebouwen, vervuiling door onze uitstoot en zeespiegelstijging door klimaatverandering, wederom door onze uitstoot is aan de orde van de dag. En een groeiende stad verlangt ook alsmaar meer drinkwater en import van voedsel en goederen.
+  <br>
+  <br>
+  In Nederland zijn er diverse maatregelen en initiatieven ontwikkeld om de door ons in gang gezette processen van urbanisatie terug te draaien naar een aanpak in de richting van de natuur. ‘Ruimte voor de rivier’ en geavanceerde waterkerende kunstwerken zijn zulke initiatieven. Maar dat deze risico's niet alleen in Nederland zich aandienen is d.m.v. deze website aantoonbaar evident gemaakt. We hebben onderzoek gedaan naar hoe wereldwijd steden op delta’s zijn gesitueerd, en wat lokaal de uitdagingen zijn voor de toekomst.
+  <br>
+  <br>
+  De eerste twee onderzoeken zijn hier gepubliceerd, betreffende de Elbedelta in Duitsland nabij Hamburg en de Fraser River Delta in Canada, te Vancouver. 
+  </p>  
+  
+  
+  </div>
+  
+  
+  <div class="vergelijkingshelft">
+  
+
+	
+	
+  <div class="kader_vergelijken">
+  <h3>Delta's vergelijken</h3>
+  <img src="images/delta-vergelijken.png" alt="deltas vergelijken" class="delta-vergelijken-icoontje">
+ <h6>Vergelijk twee deltagebieden met elkaar.</h6>
+ 	<a href="deltas-vergelijken.html" class="vergelijkenknop">Vergelijken starten</a>
+	 <h6>Een overzicht van data per deltagebied.</h6>
+</div>
+ 
+
+  </div>
+  </div>
+  
+  
+
+  </div>
+
+<div id="overzicht">
+
+
+<a href="elbedelta.html">
+<div class="fotocontainer">
+  <img src="images/150715-0507-vierkant.jpg" alt="Elbedelta" class="ud_image">
+  <div class="laagje-over">
+    <div class="ud_teksten">
+	
+	<h2>Elbedelta</h2>
+	<p>Hamburg, Duitsland</p>
+	</div>
+  </div>
+</div>
+</a>
+
+
+
+
+<a href="fraser-river-delta.html">
+<div class="fotocontainer">
+  <img src="images/over_van023_klein.jpg" alt="FraserRiverDelta" class="ud_image">
+  <div class="laagje-over">
+    <div class="ud_teksten">
+	
+	<h2>Fraser River Delta</h2>
+	<p>Vancouver, Canada</p>
+	</div>
+  </div>
+</div>
+</a>
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/RV_near_Galveston_Bay.jpg" alt="GalvestonBay" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Galveston Bay</h2>
+	<p>Houston, Verenigde Staten</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/14610275771_9a4082e798_b.jpg" alt="Ganges" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Gangesdelta</h2>
+	<p>Bangladesh</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/Mekong-Delta-satellite.jpg" alt="Mekong" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Mekongdelta</h2>
+	<p>Ho Chi Minh-stad, Vietnam</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/Satellite.jpg" alt="Mississippi" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Mississippi Delta</h2>
+	<p>New Orleans, Verenigde Staten</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/3e714efd7bb8ab751a7f1ccac2322cb8.jpg" alt="Nijldelta" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Nijldelta</h2>
+	<p>Alexandrië, Egypte</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/maxresdefault.jpg" alt="Parana" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Paranadelta</h2>
+	<p>Buenos Aires, Argentinië</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/28nov16a.jpg" alt="RMS" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Rijn-Maas-Scheldedelta</h2>
+	<p>Rotterdam, Nederland</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/Tagus.jpg" alt="Taagdelta" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Taagdelta</h2>
+	<p>Lissabon, Portugal</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/ISS-39_Venice_Lagoon,_Italy.jpg" alt="Venetië" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Venetiëlagune</h2>
+	<p>Venetië, Italië</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="fotocontainer">
+  <img src="images/Yangtze-river-delta.jpg" alt="RMS" class="ud_image">
+  <div class="laagje-over_niet-beschikbaar"><h4>Nog niet beschikbaar.</h4>
+    <div class="ud_teksten">
+	
+	<h2>Yangtze River Delta</h2>
+	<p>Shanghai, China</p>
+	</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="devoetzijnkleur">
+  <div class="binnencontainer">
+<div class="devoet">
+
+<div class="eenderdevoet">
+<h2>Project Wereldwateren</h2>
+<a href="over-project-wereldwateren.html"><p>Over Project Wereldwateren</p></a>
+<a href="over-project-wereldwateren.html#contact"><p>Contact</p></a>
+<a href="help-mee.html"><p style="color: #31bef0 !important;">Help mee!</p></a>
+</div>
+
+<div class="eenderdevoet">
+<h2>Urban Deltas</h2>
+<a href="urban-deltas.html"><p>Alle Delta's</p></a>
+<a href="deltas-vergelijken.html"><p>Delta's vergelijken</p></a>
+<hr>
+<a href="elbedelta.html"><p>Elbedelta</p></a>
+<a href="fraser-river-delta.html"><p>Fraser River Delta</p></a>
+</div>
+
+<div class="eenderdevoet">
+<h2>Social</h2>
+<a href="https://www.youtube.com/user/uvwvideokanaal" target="_blank"><p><img src="images/yt_logo.png" style="vertical-align: bottom;" height="20" alt="Youtube"> UVW Youtube</p></a>
+<hr>
+<a href="https://www.youtube.com/playlist?list=PLAA8yVxqwatxVg6_9lf-M17zt7ggYyxb4" target="_blank"><p><img src="images/yt_logo-uvw-int.png" style="vertical-align: bottom;" height="20" alt="Youtube"> UVW Youtube Int.</p></a>
+<hr>
+<a href="https://twitter.com/waterschappen" target="_blank"><p><img src="images/twitter-logo.png" style="vertical-align: bottom;" height="20" alt="Twitter"> Twitter</p></a>
+
+</div>
+
+
+</div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy;
+	  <script>
+  var today = new Date()
+  var year = today.getFullYear()
+  document.write(year)
+</script>
+	  Deze website is mogelijk gemaakt door de Unie van Waterschappen, i.s.m. Rijkswaterstaat | Gebouwd en ontworpen door Gablo
+	</div>
+
+<!-- Main Container Ends -->
+	
+	
+	
+	
+	
+	<!-- Voor de accordionteksten -->
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+</body>
+</html>
